@@ -4,19 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gutendex Book List</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <main>
-      <header>
-        <nav>
-          <h1>Gutendex Book List</h1>
-          <ul>
-            <li><a href="#" class="active" data-page="home">Home</a></li>
-            <li><a href="#" data-page="wishlist">Wishlist</a></li>
-          </ul>
-        </nav>
-      </header>
+      <header id="navbar"></header>
 
       <section class="container">
         <div class="home-page">
@@ -35,19 +27,10 @@
             <button id="next-page">Next</button>
           </div>
         </div>
-
-        <div id="wishlist-page" style="display: none">
-          <h2>Your Wishlist</h2>
-          <div id="wishlist-container"></div>
-        </div>
-
-        <div id="book-details-page" style="display: none">
-          <button id="back-to-list">Back to List</button>
-          <div id="book-details"></div>
-        </div>
-      </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
+    <!-- Load the navbar script -->
+    <script src="./js/load-navbar.js"></script>
   </body>
 </html>
