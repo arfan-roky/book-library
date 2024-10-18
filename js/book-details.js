@@ -4,6 +4,7 @@ let loading = false;
 
 // DOM elements
 let bookDetailsContainer = document.querySelector(".book-details");
+const headTitle = document.querySelector("head > title");
 
 const bookId = new URLSearchParams(window.location.search).get("id");
 
@@ -18,6 +19,7 @@ async function fetchBookById(bookId) {
     setTimeout(() => {
       allBooks = JSON.parse(cachedBooks);
       bookDetails = allBooks.find((book) => book.id === parseInt(bookId));
+      headTitle.textContent = `Book Library - ${bookDetails?.title}`;
       if (!bookDetails) {
         bookDetailsContainer.innerHTML =
           "<p>Book not found. Please try again.</p>";
@@ -35,7 +37,10 @@ async function fetchBookById(bookId) {
   try {
     const response = await fetch(`https://gutendex.com/books/${bookId}`);
     const data = await response.json();
-    bookDetails = data;
+    if (data) {
+      headTitle.textContent = `Book Library - ${data?.title}`;
+      bookDetails = data;
+    }
   } catch (error) {
     console.error("Error fetching book details:", error);
     bookDetailsContainer.innerHTML =
